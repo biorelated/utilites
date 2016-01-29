@@ -3,7 +3,7 @@
 #SBATCH -o output_%j.txt
 #SBATCH -e errors_%j.txt
 #SBATCH -n 20
-#SBATCH --mem-per-cpu=1000
+#SBATCH --mem-per-cpu=5000
 #SBATCH -p longrun
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=ggithinji@kemri-wellcome.org
@@ -30,7 +30,7 @@
 # THE SOFTWARE.
 
 ## Author: George Githinji
-## Email: ggithinji@kemri-wellcome.org
+## Email: ggithinji[at]kemri-wellcome.org
 
 ## This program runs the parallel version of phyml using  openmpi
 ## NOTE: The number of bootstrap replicates must be a multiple of the number of CPUs required in the mpirun command.
@@ -40,10 +40,12 @@ set -e
 # 1. PhyML (compiled with openmpi)
 # 2. openmpi
 
-#read the parameters from the commnd linei    
+#read the parameters from the command lines    
 USAGE="Usage: $0 -i input_file -b boostraps -d datatype -m model_name"
 
 # A commandline with getopts
+# TODO 
+    #Support all phyml options and set defaults 
 while getopts i:b:d:m:h options
 do
    case "$options" in
