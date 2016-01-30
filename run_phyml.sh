@@ -64,7 +64,7 @@ if [[ $INPUTFILE == "" || $DATATYPE == "" || $MODELNAME == "" || $BOOTSTRAPS == 
     exit 0
 fi
 
-#load the phyml
+#load phyml-mpi
 module purge
 module load openmpi
 module load phyml/3.2.0
